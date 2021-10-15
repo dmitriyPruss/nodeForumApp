@@ -1,17 +1,17 @@
 GET http://localhost:5000/messages
 
 ###
-PATCH http://localhost:5000/messages/bdecd9e8-eb96-4ed7-88eb-1ce67af3c1eb
+PUT http://localhost:5000/messages/d38f9c7a-35ba-46b8-be09-4871abaf96f8
 Content-Type: application/json
 
 {
   "text": "What? It is something new... It`s updating!",
   "eMail": "milaLudvig@gmail.com.uk",
-  "timeValue": "21.04.2020"
+  "timeValue": "11.07.2020"
 }
 
 ###
-DELETE http://localhost:5000/messages/bdecd9e8-eb96-4ed7-88eb-1ce67af3c1eb
+DELETE http://localhost:5000/messages/cc397e2c-7c46-4e75-8cf4-74149fb76e72
 
 ###
 POST http://localhost:5000/messages

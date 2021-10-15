@@ -24,9 +24,8 @@ module.exports.updateMessage = (req, res) => {
 
   const updatedMsg = Message.updateMessage(req.body, msgId);
 
-  updatedMsg && req.body
-    ? (msgActionArchiveMw.changeMsg(req, updatedMsg),
-      res.status(201).send(updatedMsg))
+  updatedMsg
+    ? (msgActionArchiveMw.changeMsg(req, updatedMsg), res.status(204).send())
     : res.status(404).send('Error 404. Updated element not found');
 };
 

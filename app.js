@@ -9,11 +9,6 @@ const formatDateMw = require('./middleware/formatDateMw');
 
 app.use(express.json());
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send(`Error 505! ${err}`);
-});
-
 // C
 app.post(
   '/messages',
@@ -27,7 +22,7 @@ app.post(
 app.get('/messages', msgController.getMessages);
 
 // U
-app.patch(
+app.put(
   '/messages/:msgId',
   parseDateMw.parseDate,
   validateMw.validateMsg,
@@ -37,5 +32,10 @@ app.patch(
 
 // D
 app.delete('/messages/:msgId', msgController.deleteMessage);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send(`Error 505! ${err}`);
+});
 
 module.exports = app;
