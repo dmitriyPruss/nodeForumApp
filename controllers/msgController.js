@@ -17,12 +17,12 @@ module.exports.createMessage = (req, res) => {
       res.status(201).send(createdMessage));
 };
 
-module.exports.updateMessage = (req, res) => {
+module.exports.updateOrCreateMessage = (req, res, next) => {
   const {
     params: { msgId }
   } = req;
 
-  const updatedMsg = Message.updateMessage(req.body, msgId);
+  const updatedMsg = Message.updateOrCreateMessage(req.body, msgId);
 
   updatedMsg
     ? (msgActionArchiveMw.changeMsg(req, updatedMsg), res.status(204).send())

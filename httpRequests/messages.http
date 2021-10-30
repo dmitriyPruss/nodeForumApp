@@ -1,17 +1,17 @@
 GET http://localhost:5000/messages
 
 ###
-PUT http://localhost:5000/messages/d38f9c7a-35ba-46b8-be09-4871abaf96f8
+PUT http://localhost:5000/messages/7a24f931-08ee-4347-b0c6-34c6498c72c7
 Content-Type: application/json
 
 {
-  "text": "What? It is something new... It`s updating!",
-  "eMail": "milaLudvig@gmail.com.uk",
-  "timeValue": "11.07.2020"
+  "text": "What? It is something new... It`s updating or creating)!",
+  "eMail": "AllenaLinkedIn@gmail.com.ua",
+  "timeValue": "01.01.2015"
 }
 
 ###
-DELETE http://localhost:5000/messages/cc397e2c-7c46-4e75-8cf4-74149fb76e72
+DELETE http://localhost:5000/messages/34e0549c-4ab4-449a-8604-e367ce69cf13
 
 ###
 POST http://localhost:5000/messages
@@ -20,6 +20,6 @@ Content-Type: application/json
 {
   "text": "Hi guys! How are you?",
   "eMail": "awrttttasddfff@gmail.com",
-  "timeValue": "21.04.2012"
+  "timeValue": "30.03.2017"
 }
 

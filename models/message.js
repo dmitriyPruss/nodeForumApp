@@ -1,5 +1,5 @@
 const msgDb = require('./messagesDb');
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4, validate: isUuid } = require('uuid');
 
 class Message {
   static messages = msgDb;
@@ -15,7 +15,7 @@ class Message {
 
   static findMsg = msgId => Message.messages.findIndex(msg => msg.id === msgId);
 
-  static updateMessage = (body, msgId) => {
+  static updateOrCreateMessage = (body, msgId) => {
     const updatedMsgIndex = Message.findMsg(msgId);
 
     if (updatedMsgIndex !== -1) {
@@ -24,6 +24,12 @@ class Message {
       Message.messages.splice(updatedMsgIndex, 1, updatedMsg);
 
       return updatedMsg;
+    } else if (updatedMsgIndex === -1 && isUuid(msgId)) {
+      const newMsg = { id: msgId, ...body };
+
+      Message.messages.push(newMsg);
+
+      return newMsg;
     } else {
       return null;
     }

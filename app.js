@@ -27,7 +27,7 @@ app.put(
   parseDateMw.parseDate,
   validateMw.validateMsg,
   formatDateMw.formatDate,
-  msgController.updateMessage
+  msgController.updateOrCreateMessage
 );
 
 // D
